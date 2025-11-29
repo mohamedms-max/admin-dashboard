@@ -1,0 +1,422 @@
+/* ===== Reset بسيط ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #020617;
+    color: #e5e7eb;
+    line-height: 1.5;
+}
+
+/* ألوان عامة */
+:root {
+    --bg-dark: #020617;
+    --bg-sidebar: #020617;
+    --bg-main: #020617;
+    --bg-panel: #02081a;
+    --border-soft: #1f2937;
+    --accent: #38bdf8;
+    --text-muted: #9ca3af;
+    --success: #22c55e;
+    --warning: #eab308;
+    --danger: #ef4444;
+}
+
+/* ===== Layout عام: Dashboard ===== */
+.dashboard {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000 100%);
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    border-right: 1px solid var(--border-soft);
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.7);
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.logo-text span {
+    color: var(--accent);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.sidebar-nav a {
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: var(--text-muted);
+    transition: 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(15, 23, 42, 0.9);
+    color: #fff;
+}
+
+.sidebar-nav a.active {
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    color: #0b1120;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ===== Main area ===== */
+.main {
+    padding: 20px 26px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Topbar */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar h1 {
+    font-size: 26px;
+}
+
+.topbar-subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-name {
+    display: block;
+    font-size: 14px;
+}
+
+.user-role {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.user-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: #0f172a;
+    border: 1px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+/* ===== Cards ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.card {
+    background-color: #02081a;
+    border-radius: 14px;
+    border: 1px solid var(--border-soft);
+    padding: 14px 16px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card-label {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.card-value {
+    margin-top: 4px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card-change {
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.card-change.positive {
+    color: var(--success);
+}
+
+.card-change.negative {
+    color: var(--danger);
+}
+
+.card-change.neutral {
+    color: var(--text-muted);
+}
+
+/* ===== Panels (Activity + Summary + Table) ===== */
+.grid-two {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 16px;
+}
+
+.panel {
+    background-color: var(--bg-panel);
+    border-radius: 16px;
+    border: 1px solid var(--border-soft);
+    padding: 16px 18px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+.panel h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.panel-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+/* Activity list */
+.activity-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.activity-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    margin-top: 6px;
+}
+
+.dot.success {
+    background: var(--success);
+}
+
+.dot.warning {
+    background: var(--warning);
+}
+
+.dot.info {
+    background: var(--accent);
+}
+
+.time {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Fake chart */
+.fake-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 120px;
+    margin-top: 8px;
+}
+
+.bar {
+    flex: 1;
+    border-radius: 10px 10px 0 0;
+    background: linear-gradient(to top, #0f172a, #38bdf8);
+    opacity: 0.9;
+}
+
+.bar-1 {
+    height: 30%;
+}
+
+.bar-2 {
+    height: 60%;
+}
+
+.bar-3 {
+    height: 80%;
+}
+
+.bar-4 {
+    height: 50%;
+}
+
+.bar-5 {
+    height: 70%;
+}
+
+/* Table */
+.table-panel {
+    margin-top: 4px;
+}
+
+.table-wrapper {
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+thead {
+    background-color: #020617;
+}
+
+th,
+td {
+    padding: 10px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+th {
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.badge {
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+.badge.success {
+    background: rgba(34, 197, 94, 0.16);
+    color: var(--success);
+}
+
+.badge.warning {
+    background: rgba(234, 179, 8, 0.16);
+    color: var(--warning);
+}
+
+.badge.danger {
+    background: rgba(239, 68, 68, 0.16);
+    color: var(--danger);
+}
+
+/* Footer */
+.footer {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 960px) {
+    .dashboard {
+        grid-template-columns: 70px minmax(0, 1fr);
+    }
+
+    .sidebar {
+        padding-inline: 10px;
+        align-items: center;
+    }
+
+    .sidebar-logo .logo-text {
+        display: none;
+    }
+
+    .sidebar-nav a {
+        font-size: 0;
+        text-align: center;
+    }
+
+    .sidebar-nav a::before {
+        content: "•";
+        font-size: 18px;
+    }
+
+    .sidebar-footer {
+        font-size: 0;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-two {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+        /* ممكن بعدين نعمله menu */
+    }
+
+    .main {
+        padding-inline: 14px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
